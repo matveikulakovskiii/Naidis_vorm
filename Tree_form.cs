@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Näidis_vorm;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Näiteks
     {
         TreeView tree;
         Button btn;
+        Button btn2;
         Label lbl;
         TextBox txt_box;
         RadioButton r1, r2;
@@ -21,6 +23,8 @@ namespace Näiteks
         ListBox lb;
         public FarmTree()
         {
+            
+
             this.Height = 600;
             this.Width = 800;
             this.Text = "Vorm põhielementidega";
@@ -139,14 +143,26 @@ namespace Näiteks
             DataGrip.DataSource= ds;
             DataGrip.AutoGenerateColumns= true;
             DataGrip.AutoSize=true;
-            
+            DataGrip.Visible = false;
             DataGrip.DataMember = "customer";
             this.Controls.Add(DataGrip);
 
 
-        }
+            treeNode.Nodes.Add(new TreeNode("Kolmnurk"));
+            btn2 = new Button();
+            btn2.Height = 40;
+            btn2.Width = 100;
+            btn2.Text = "Kolmnurk";
+            btn2.Location = new Point(200, 50);
+            btn2.Click += Btn_Click2;
+            btn2.Visible = false;
+            this.Controls.Add(btn2);
 
-        private void Txt_box_KeyDown(object? sender, KeyEventArgs e)
+
+
+        }
+        
+    private void Txt_box_KeyDown(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -230,6 +246,14 @@ namespace Näiteks
             {
                 btn.Visible = true;
             }
+            if (e.Node.Text == "Kolmnurk" && btn2.Visible == true)
+            {
+                btn2.Visible = false;
+            }
+            else if (e.Node.Text == "Kolmnurk" && btn2.Visible == false)
+            {
+                btn2.Visible = true;
+            }
 
             if (e.Node.Text == "Silt-Label" && lbl.Visible == true)
             {
@@ -301,8 +325,13 @@ namespace Näiteks
             {
                 btn.BackColor = Color.Aqua;
             }
+        }
 
-
+        private void Btn_Click2(object? sender, EventArgs e)
+        {
+            Triangle triangle = new Triangle();
+            triangle.Show();
+            
         }
     }
 }
