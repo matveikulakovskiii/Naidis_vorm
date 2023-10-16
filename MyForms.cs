@@ -11,12 +11,12 @@ namespace Näidis_vorm
             btn = new Button();
             btn.Height = 40;
             btn.Width = 100;
-            btn.Text= "Valjuta mind";
-            btn.Location = new Point(10,20);
+            btn.Text = "Valjuta mind";
+            btn.Location = new Point(10, 20);
             this.Controls.Add(btn);
         }
 
-        public MyForms(int x ,int y, string nimetus)
+        public MyForms(int x, int y, string nimetus)
         {
             InitializeComponent();
             this.Height = y;
