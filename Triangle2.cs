@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Näidis_vorm
 {
-    internal class Triangle : Form
+    internal class Triangle2 : Form
     {
         public double a;
         public double b;
@@ -22,24 +20,22 @@ namespace Näidis_vorm
         Label lbl2;
         ListView lb;
         Button btn;
-        Button btn2;
-        Button btn3;
         PictureBox pb;
         PictureBox pb1;
         PictureBox pb2;
 
-        public Triangle(double A, double B, double C)
+        public Triangle2(double A, double B, double C)
         {
             c = C;
             a = A;
             b = B;
         }
-        public Triangle()
+        public Triangle2()
         {
 
             this.Height = 600;
             this.Width = 800;
-            this.Text = "Kolmnurk";
+            this.Text = "Oma Vorm";
             tree = new TreeView();
             tree.Dock = DockStyle.Right;
             tree.BorderStyle = BorderStyle.Fixed3D;
@@ -53,22 +49,6 @@ namespace Näidis_vorm
             btn.Location = new Point(260, 40);
             btn.Click += Run_button_Click;
             this.Controls.Add(btn);
-
-            btn2 = new Button();
-            btn2.Height = 40;
-            btn2.Width = 154;
-            btn2.Text = "Oma Vorm";
-            btn2.Location = new Point(50, 440);
-            btn2.Click += Run_button_Click2;
-            this.Controls.Add(btn2);
-
-            btn3 = new Button();
-            btn3.Height = 40;
-            btn3.Width = 154;
-            btn3.Text = "Värskendada";
-            btn3.Location = new Point(210, 440);
-            btn3.Click += Run_button_Click3;
-            this.Controls.Add(btn3);
 
             lbl = new Label { BackColor = Color.White };
             lbl.Text = "Külg a";
@@ -162,7 +142,7 @@ namespace Näidis_vorm
 
 
         private void Run_button_Click(object sender, EventArgs e)
-        {   
+        {
             double a, b, c;
             a = Convert.ToDouble(txt_box.Text);
             b = Convert.ToDouble(txt_box1.Text);
@@ -189,29 +169,14 @@ namespace Näidis_vorm
             {
                 lb.Items[6].SubItems.Add("See ei ole olemas");
             }
-            if(a != b & a != c & b != c)
+            if (a != b & a != c & b != c)
                 pb.Visible = true;
             if (a == b & a == c & b == c)
-                pb.Image = new Bitmap("../../../2.png");
-                pb.Visible = true;
+                pb2.Visible = true;
             if (a == b & a != c & b != c || b == c & b != a & a != c || c == a & a != b & b != c)
                 pb1.Visible = true;
         }
 
-
-        private void Run_button_Click2(object sender, EventArgs e)
-        {
-            Triangle2 triangle = new Triangle2();
-            triangle.Show();
-        }
-
-        private void Run_button_Click3(object sender, EventArgs e)
-        {
-            lb.Items.Clear();
-            pb.Visible = false;
-            pb1.Visible = false;
-            pb2.Visible = false;
-        }
 
         public string outputA()
         {
@@ -278,6 +243,6 @@ namespace Näidis_vorm
                 else return false;
             }
         }
-        
+
     }
 }

@@ -161,8 +161,10 @@ namespace Näiteks
 
 
         }
-        
-    private void Txt_box_KeyDown(object? sender, KeyEventArgs e)
+
+
+      
+        private void Txt_box_KeyDown(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -333,5 +335,6 @@ namespace Näiteks
             triangle.Show();
             
         }
+   
     }
 }
