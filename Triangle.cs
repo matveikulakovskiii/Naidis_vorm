@@ -192,8 +192,7 @@ namespace Näidis_vorm
             if(a != b & a != c & b != c)
                 pb.Visible = true;
             if (a == b & a == c & b == c)
-                pb.Image = new Bitmap("../../../2.png");
-                pb.Visible = true;
+                pb2.Visible = true;
             if (a == b & a != c & b != c || b == c & b != a & a != c || c == a & a != b & b != c)
                 pb1.Visible = true;
         }
@@ -251,24 +250,32 @@ namespace Näidis_vorm
                 h = (s * 2) / b;
             else if (c > a & c > b)
                 h = (s * 2) / c;
+            else if (a > b & c > b & a == c)
+                h = (s * 2) / a;
+            else if (a > c & b > c & a == b)
+                h = (s * 2) / a;
+            else if (b > a & c > a & b == c)
+                h = (s * 2) / b;
+            else if (a == b & a == c & c == b)
+                h = (s * 2) / a;
             return h;
         }
 
-        public double GetSetA
-        {
-            get { return a; }
-            set { a = value; }
-        }
-        public double GetSetB
-        {
-            get { return b; }
-            set { b = value; }
-        }
-        public double GetSetC
-        {
-            get { return c; }
-            set { c = value; }
-        }
+        //public double GetSetA
+        //{
+        //    get { return a; }
+        //    set { a = value; }
+        //}
+        //public double GetSetB
+        //{
+        //    get { return b; }
+        //    set { b = value; }
+        //}
+        //public double GetSetC
+        //{
+        //    get { return c; }
+        //    set { c = value; }
+        //}
         public bool ExistTriangle
         {
             get
